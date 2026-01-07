@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 5, 75, 2))),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 5, 75, 2)),
+      ),
       home: const MyHomePage(),
     );
   }
@@ -95,38 +97,86 @@ class MyHomePage extends StatelessWidget {
           //     );
           //   },
           // )
+          // ListView.builder(
+          //   itemCount: Studentinformation.length,
+          //   itemBuilder: (context, index) {
+          //     final Studentinfo = Studentinformation[index];
+          //     return Card(
+          //       margin: const EdgeInsets.all(12),
+          //       child: Padding(
+          //         padding: const EdgeInsets.all(12),
+          //         child: Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           children: [
+          //             Column(
+          //               mainAxisAlignment: MainAxisAlignment.start,
+          //               children: [
+          //                 Text(
+          //                   Studentinfo.name,
+          //                   style: TextStyle(
+          //                     color: Colors.black,
+          //                     fontSize: 12,
+          //                     fontWeight: FontWeight.bold,
+          //                   ),
+          //                 ),
+          //                  const SizedBox(height: 4),
+          //                  Text(Studentinfo.CompanyName),
+          //                  const SizedBox(height: 4),
+          //                  Text(Studentinfo.HomeTown)
+          //               ],
+          //             ),
+          //             Text("৳${Studentinfo.salary}",  style: const TextStyle(
+          //       fontSize: 16,
+          //       fontWeight: FontWeight.bold,))
+          //           ],
+          //         ),
+          //       ),
+          //     );
+          //   },
+          // ),
           ListView.builder(
             itemCount: Studentinformation.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (BuildContext context, int index) {
               final Studentinfo = Studentinformation[index];
               return Card(
-                margin: const EdgeInsets.all(12),
-                child: Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            Studentinfo.name,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                           const SizedBox(height: 4),
-                           Text(Studentinfo.CompanyName),
-                           const SizedBox(height: 4),
-                           Text(Studentinfo.HomeTown)
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.only(topLeft: Radius.elliptical(3, 3)),
+                ),
 
-                        ],
+                margin: const EdgeInsets.all(12),
+                child: SizedBox(
+                  height: 150,
+                  child: Stack(
+                    children: [
+                      Container(color: Colors.green.shade100),
+
+                      Positioned(
+                        top: 12,
+                        left: 12,
+                        child: Text(
+                          "${Studentinfo.name}",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
-                      Text("৳${Studentinfo.salary}",  style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,))
+
+                      Positioned(
+                        bottom: 12,
+                        right: 12,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 6,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Text(Studentinfo.CompanyName),
+                        ),
+                      ),
                     ],
                   ),
                 ),
