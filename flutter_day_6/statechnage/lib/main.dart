@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:statechnage/homescreen.dart';
+import 'package:statechnage/botomnevigation.dart';
+import 'package:statechnage/drawerlogic.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 173, 152, 230))),
-      home:Homescreen() ,
+      theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor:Colors.blueAccent)),
+      home:BottomNavigationLogic() ,
     );
     }}
